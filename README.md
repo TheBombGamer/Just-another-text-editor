@@ -1,2 +1,2 @@
-# Just-another-text-editor
-Really just part of a project from the build your own x github repo still coded it myself :3
+# Just a BETTER text editor
+Really just part of a project I wanted to create! Just testing out my Rust skills!
