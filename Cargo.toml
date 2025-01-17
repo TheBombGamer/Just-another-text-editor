@@ -1,5 +1,4 @@
-[dependencies]
-gtk = "0.9"
-glib = "0.9"
-syntect = "4.6"
-rfd = "0.11"
+[workspace]
+members = [
+    "programs/*"
+]
