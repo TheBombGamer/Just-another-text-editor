@@ -2,7 +2,7 @@ use gtk::prelude::*;
 use gtk::{Application, ApplicationWindow, TextView, MenuBar, MenuItem, Box, ScrolledWindow};
 use rfd::FileDialog;
 use std::fs;
-fn main() {
+fn main(){
     let application = Application::new(Some("com.example.advanced_text_editor"), Default::default());
     application.connect_activate(|app| {
         let window = ApplicationWindow::new(app);
@@ -16,18 +16,13 @@ fn main() {
         let save_item = MenuItem::with_label("Save");
         let exit_item = MenuItem::with_label("Exit");
         open_item.connect_activate(move |_| {
-            if let Some(path) = FileDialog::new().pick_file() {
-                let content = fs::read_to_string(path.path()).unwrap_or_default();
-            }
-        });
+        if let Some(path) = FileDialog::new().pick_file() {
+        let content = fs::read_to_string(path.path()).unwrap_or_default();}});
         save_item.connect_activate(move |_| {
-            if let Some(path) = FileDialog::new().save_file() {
-                fs::write(path.path(), "Your content here").expect("Unable to write file");
-            }
-        });
+        if let Some(path) = FileDialog::new().save_file() {
+        fs::write(path.path(), "Your content here").expect("Unable to write file");}});
         exit_item.connect_activate(|_| {
-            gtk::main_quit();
-        });
+        gtk::main_quit();});
         file_menu.append(&open_item);
         file_menu.append(&save_item);
         file_menu.append(&exit_item);
@@ -39,7 +34,4 @@ fn main() {
         vbox.pack_start(&menu_bar, false, false, 0);
         vbox.pack_start(&scrolled_window, true, true, 0);
         window.add(&vbox);
-        window.show_all();
-    });
-    application.run();
-}
+        window.show_all();});application.run();}
